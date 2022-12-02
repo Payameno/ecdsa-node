@@ -7,6 +7,7 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [address, setAddress] = useState("");
   const [privateKey, setPrivateKey] = useState("");
+  console.log('address', address)
 
   return (
     <div className="app">
