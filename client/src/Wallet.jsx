@@ -12,7 +12,7 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
     const publicKey = secp.getPublicKey(privateKey);
     const keccak256PublicKey = keccak256(publicKey).slice(-20);
     const publicKeyHex = toHex(keccak256PublicKey);
-    console.log('publicKeyHex', publicKeyHex)
+    setAddress(publicKeyHex);
 
     if (address) {
       const {
@@ -32,7 +32,7 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
         Private Key
         <input placeholder="Please type in your private Key" value={privateKey} onChange={onChange}></input>
       </label>
-
+      <p>Address(Public Key): {address}</p>
       <div className="balance">Balance: {balance}</div>
     </div>
   );
