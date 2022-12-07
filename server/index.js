@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const port = 3042;
+const generatePublicKey = require("./scripts/publicKey");
 
 app.use(cors());
 app.use(express.json());
@@ -18,7 +19,17 @@ app.get("/balance/:address", (req, res) => {
   res.send({ balance });
 });
 
+app.get("/publicKey/:privkey", (req, res) => {
+  const { privkey } = req.params;
+  const publicKey = generatePublicKey(privkey);
+  res.send({ publicKey });
+});
+
 app.post("/send", (req, res) => {
+
+//receive a signature from front end
+//recover public key from that signature
+
   const { sender, recipient, amount } = req.body;
 
   setInitialBalance(sender);

@@ -7,6 +7,9 @@ function Transfer({ address, setBalance }) {
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 
+     //generate a signature using the private key
+    //
+
   async function transfer(evt) {
     evt.preventDefault();
 

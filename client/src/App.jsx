@@ -1,13 +1,12 @@
 import Wallet from "./Wallet";
 import Transfer from "./Transfer";
-import "./App.scss";
 import { useState } from "react";
+import "./App.scss";
 
 function App() {
   const [balance, setBalance] = useState(0);
   const [address, setAddress] = useState("");
   const [privateKey, setPrivateKey] = useState("");
-  console.log('address', address)
 
   return (
     <div className="app">
