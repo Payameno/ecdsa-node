@@ -7,6 +7,8 @@ const { keccak256 }  = require("ethereum-cryptography/keccak");
     const publicKey = secp.getPublicKey(BytesPrivateKey);
     const keccak256PublicKey = keccak256(publicKey).slice(-20);
     const publicKeyHex = toHex(keccak256PublicKey);
+    const addPrefix = '0x' + publicKeyHex;
+    return addPrefix;
   }
 
 module.exports = generatePublicKey;

@@ -7,10 +7,10 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
     const privateKey = evt.target.value;
     setPrivateKey(privateKey);
 
-      // const publicKey = await server.get(`publickey/${privateKey}`);
-      // console.log('publicKey', publicKey);
-      // setAddress('0x'+publicKey);
-      // console.log('address', address);
+    const {
+      data: { publicKey }
+    } = await server.get(`publickey/${privateKey}`);
+      setAddress(publicKey);
 
     if (address) {
       const {

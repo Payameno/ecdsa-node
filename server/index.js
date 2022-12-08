@@ -13,16 +13,14 @@ const balances = {
   "0x46a832bbc27923cccfe959fdd1debaed1db22c8f": 75,
 };
 
-// app.get("/publickey/:id", (req, res) => {
-//   console.log('req.params', req.params);
-//   const { id } = req.params;
-//   console.log('req.params', req.params);
-//   const publicKey = generatePublicKey(privateKey);
-//   res.send( { publicKey } );
-// });
+app.get("/publickey/:privateKey", (req, res) => {
+  console.log('req.params', req.params);
+  const { privateKey } = req.params;
+  const publicKey = generatePublicKey(privateKey);
+  res.send( { publicKey } );
+});
 
 app.get("/balance/:address", (req, res) => {
-  console.log('im here')
   const { address } = req.params;
   const balance = balances[address] || 0;
   res.send({ balance });
