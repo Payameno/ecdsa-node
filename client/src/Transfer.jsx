@@ -15,9 +15,8 @@ function Transfer({ address, setBalance }) {
   async function transfer(evt) {
     evt.preventDefault();
 
-    const message = `${balance} to be sent from ${address} to ${recipient}`;
-    const hashedMessage = hashMessage(message);
-
+    const message = `${balance} to be sent to ${recipient}`;
+    const signature = signMessage(message);
 
     try {
       const {
@@ -26,6 +25,7 @@ function Transfer({ address, setBalance }) {
         sender: address,
         amount: parseInt(sendAmount),
         recipient,
+        signature,
       });
       setBalance(balance);
     } catch (ex) {

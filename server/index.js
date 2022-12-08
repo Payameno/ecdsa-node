@@ -31,9 +31,6 @@ app.post("/send", (req, res) => {
 
   const { sender, recipient, amount, signature } = req.body;
 
-// get signature, recover public key, compare this public key with sender public key
-//if both matches proceed to trasnfer
-
   setInitialBalance(sender);
   setInitialBalance(recipient);
 
