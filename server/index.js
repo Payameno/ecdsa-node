@@ -8,21 +8,24 @@ app.use(cors());
 app.use(express.json());
 
 const balances = {
-  "0xcb0e6375262bf7040c79833d67b4b0c89f35b750": 100,
-  "0x79081621a4d8bb813093bd34a770bbad01f73b3e": 50,
-  "0x334b0a7512e4939813f100c71f4d0d59d3fe11a6": 75,
+  "0xf3e112d852c06b3e4ed48d93e8b43785ee3ae01a": 100,
+  "0xbed110e64032b963c387a8ac25ff8b2a89d299dd": 50,
+  "0x46a832bbc27923cccfe959fdd1debaed1db22c8f": 75,
 };
 
+// app.get("/publickey/:id", (req, res) => {
+//   console.log('req.params', req.params);
+//   const { id } = req.params;
+//   console.log('req.params', req.params);
+//   const publicKey = generatePublicKey(privateKey);
+//   res.send( { publicKey } );
+// });
+
 app.get("/balance/:address", (req, res) => {
+  console.log('im here')
   const { address } = req.params;
   const balance = balances[address] || 0;
   res.send({ balance });
-});
-
-app.get("/publicKey/:privkey", (req, res) => {
-  const { privkey } = req.params;
-  const publicKey = generatePublicKey(privkey);
-  res.send({ publicKey });
 });
 
 app.post("/send", (req, res) => {

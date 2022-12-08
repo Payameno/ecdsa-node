@@ -1,14 +1,16 @@
 import server from "./server";
 
 function Wallet({ address, setAddress, balance, setBalance, privateKey, setPrivateKey }) {
+
   async function onChange(evt) {
 
     const privateKey = evt.target.value;
     setPrivateKey(privateKey);
 
-
-    setAddress('0x'+publicKeyHex);
-    console.log('address', address);
+      // const publicKey = await server.get(`publickey/${privateKey}`);
+      // console.log('publicKey', publicKey);
+      // setAddress('0x'+publicKey);
+      // console.log('address', address);
 
     if (address) {
       const {
