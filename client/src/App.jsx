@@ -7,6 +7,7 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [address, setAddress] = useState("");
   const [privateKey, setPrivateKey] = useState("");
+  const [signedMessage, setsignedMessage] = useState("");
 
   return (
     <div className="app">
@@ -15,6 +16,8 @@ function App() {
         privateKey={privateKey}
         setPrivateKey={setPrivateKey}
         setBalance={setBalance}
+        signedMessage={signedMessage}
+        setsignedMessage={setsignedMessage}
         address={address}
         setAddress={setAddress}
       />

@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const port = 3042;
 const generatePublicKey = require("./scripts/publicKey");
+const signMessage = require("./scripts/signMessage");
 
 app.use(cors());
 app.use(express.json());
@@ -12,7 +13,7 @@ const balances = {
   "0xbed110e64032b963c387a8ac25ff8b2a89d299dd": 50,
   "0x46a832bbc27923cccfe959fdd1debaed1db22c8f": 75,
 };
-
+//message: balance, from, to
 app.get("/publickey/:privateKey", (req, res) => {
   console.log('req.params', req.params);
   const { privateKey } = req.params;
@@ -28,10 +29,10 @@ app.get("/balance/:address", (req, res) => {
 
 app.post("/send", (req, res) => {
 
-//receive a signature from front end
-//recover public key from that signature
+  const { sender, recipient, amount, signature } = req.body;
 
-  const { sender, recipient, amount } = req.body;
+// get signature, recover public key, compare this public key with sender public key
+//if both matches proceed to trasnfer
 
   setInitialBalance(sender);
   setInitialBalance(recipient);

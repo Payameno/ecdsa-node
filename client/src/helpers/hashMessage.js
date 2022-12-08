@@ -1,5 +1,5 @@
-const { keccak256 } = require("ethereum-cryptography/keccak");
-const { utf8ToBytes } = require("ethereum-cryptography/utils");
+import { keccak256 } from "ethereum-cryptography/keccak";
+import { utf8ToBytes } from "ethereum-cryptography/utils";
 
 function hashMessage(message) {
 
