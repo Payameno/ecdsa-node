@@ -1,5 +1,7 @@
 import { useState } from "react";
 import server from "./server";
+import hashMessage from "./helpers/hashMessage";
+import signMessage from "./helpers/signMessage";
 
 function Transfer({ address, setBalance }) {
   const [sendAmount, setSendAmount] = useState("");
@@ -12,6 +14,10 @@ function Transfer({ address, setBalance }) {
 
   async function transfer(evt) {
     evt.preventDefault();
+
+    const message = `${balance} to be sent from ${address} to ${recipient}`;
+    const hashedMessage = hashMessage(message);
+
 
     try {
       const {
