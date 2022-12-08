@@ -1,6 +1,6 @@
-import * as secp from "ethereum-cryptography/secp256k1";
-import { hexToBytes, toHex } from "ethereum-cryptography/utils";
-import { keccak256 } from "ethereum-cryptography/keccak";
+const secp  = require("ethereum-cryptography/secp256k1");
+const { hexToBytes, toHex }  = require("ethereum-cryptography/utils");
+const { keccak256 }  = require("ethereum-cryptography/keccak");
 
   function generatePublicKey (privateKey) {
     const BytesPrivateKey = hexToBytes(privateKey);
